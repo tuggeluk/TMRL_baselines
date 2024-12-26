@@ -68,8 +68,8 @@ def run():
         device = torch.device("cpu")
 
     learning_rate = 0.0005
-    batch_size = 12
-    num_epochs = 5
+    batch_size = 24
+    num_epochs = 10
 
 
     dataset_train = load_dataset("ILSVRC/imagenet-1k", cache_dir="./dataset", split="train")
@@ -94,6 +94,7 @@ def run():
             loss = criterion(scores, targets)
             if batch_index%100 == 0:
                 print(f"current loss: {loss}")
+                print(f"current scores: {scores}")
 
             optimizer.zero_grad()
             loss.backward()
